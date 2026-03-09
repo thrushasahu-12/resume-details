@@ -3,109 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thrusha Sahu | Data Strategy & Analytics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Thrusha Sahu | Data Analyst Portfolio</title>
     <style>
         :root {
-            --sn-green: #2ecc71;
-            --text-dark: #1a202c;
-            --text-gray: #4a5568;
-            --bg-light: #ffffff;
-            --card-gray: #f7fafc;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent: #fbbf24;
+            --nav-bg: rgba(15, 23, 42, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
 
-        /* Navigation Header */
-        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
-        .logo { font-weight: 600; font-size: 1.2rem; letter-spacing: -1px; }
-        .nav-links a { margin-left: 20px; color: var(--text-gray); text-decoration: none; font-size: 0.9rem; }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
 
-        /* Hero */
-        .hero h1 { font-size: 3rem; font-weight: 600; line-height: 1.2; margin-bottom: 24px; }
-        .hero p { font-size: 1.25rem; color: var(--text-gray); margin-bottom: 40px; }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
 
-        /* Value Pillars Grid */
-        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 60px; }
-        .pillar-card { padding: 30px; background: var(--card-gray); border-radius: 16px; transition: 0.3s; }
-        .pillar-card:hover { transform: translateY(-5px); }
-        .pillar-card h3 { color: var(--sn-green); margin-top: 0; }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-        /* Experience/Case Study */
-        .case-study { margin-top: 80px; border-top: 1px solid #edf2f7; padding-top: 60px; }
-        .case-tag { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: var(--sn-green); letter-spacing: 1px; }
-        
-        /* Stats */
-        .impact-box { display: flex; gap: 40px; margin: 40px 0; }
-        .stat { border-left: 3px solid var(--sn-green); padding-left: 15px; }
-        .stat-val { font-size: 1.8rem; font-weight: 600; display: block; }
-        .stat-label { font-size: 0.9rem; color: var(--text-gray); }
+        /* Hero Section */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
 
-        footer { margin-top: 100px; padding-bottom: 60px; color: var(--text-gray); font-size: 0.9rem; }
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .contact-bar {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        /* Main Content */
+        section {
+            padding: 5rem 10%;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        /* Skills Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: #334155;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+
+        /* Experience Timeline */
+        .exp-item {
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 1px solid #334155;
+        }
+
+        .exp-date {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-dim);
+        }
+
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid #334155;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            section { padding: 3rem 5%; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
     <nav>
         <div class="logo">TS.</div>
         <div class="nav-links">
-            <a href="#">Work</a>
-            <a href="#">Skills</a>
-            <a href="mailto:thrusha.sahu96@gmail.com">Contact</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Hi, I'm Thrusha. 👋</h1>
-        <p>I am a <strong>Data Analyst at ServiceNow</strong> specialized in transforming complex operational datasets into clear, actionable business strategies through high-integrity analytics.</p>
-        <div class="impact-box">
-            <div class="stat">
-                <span class="stat-val">25%</span>
-                <span class="stat-label">Increase in Data Quality</span>
-            </div>
-            <div class="stat">
-                <span class="stat-val">30%</span>
-                <span class="stat-label">Reduction in Data Issues</span>
-            </div>
+    <header>
+        <h1>Thrusha Sahu</h1> 
+        <p>Data Analyst</p> 
+        <div class="contact-bar">
+            thrusha.sahu96@gmail.com | +91 9502033252 
         </div>
     </header>
 
-    <section class="pillar-grid">
-        <div class="pillar-card">
-            <h3>Data Integrity</h3>
-            <p>Mastery in SQL and AWS Redshift to audit, validate, and ensure enterprise-scale data accuracy.</p>
-        </div>
-        <div class="pillar-card">
-            <h3>Process Automation</h3>
-            <p>Using Python and Pandas to replace manual workflows with automated, error-free reporting engines.</p>
-        </div>
-        <div class="pillar-card">
-            <h3>BI Narrative</h3>
-            <p>Designing interactive Power BI stories that help stakeholders make faster, data-backed decisions.</p>
+    <section id="about">
+        <h2>Professional Summary</h2>
+        <p style="color: var(--text-dim); font-size: 1.1rem; max-width: 800px;">
+            Data Analyst with 3+ years of experience delivering actionable insights through data exploration, visualization, and automation. 
+            Proficient in SQL, Python, Power BI, Tableau, and Google Analytics with a strong understanding of data storytelling and stakeholder collaboration.
+            Adept at building dashboards, cleaning and validating data, and improving data quality to support strategic decisions across business and content domains.
+        </p>
+    </section>
+
+    <section id="skills" style="background: #0a0f1d;">
+        <h2>Technical Expertise</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Analysis & Processing</h3>
+                <div class="tags">
+                    <span class="tag">SQL</span> <span class="tag">Python (Pandas, NumPy)</span> <span class="tag">Excel</span> 
+                </div>
+            </div>
+            <div class="card">
+                <h3>Visualization</h3>
+                <div class="tags">
+                    <span class="tag">Tableau</span> <span class="tag">Power BI</span> <span class="tag">Google Data Studio</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Cloud & Tools</h3>
+                <div class="tags">
+                    <span class="tag">Snowflake</span> <span class="tag">AWS</span> <span class="tag">JIRA</span> <span class="tag">Git</span> <span class="tag">ServiceNow</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="case-study">
-        <span class="case-tag">Featured Work</span>
-        <h2>Optimizing the ServiceNow Ecosystem</h2>
-        <p>At ServiceNow, I manage the lifecycle of operational data. My work involves navigating AWS S3 data lakes and performing deep-dive root cause analysis on production issues to ensure business continuity.</p>
-        <p><em>Tech Stack: SQL, Python, AWS Redshift, Power BI, JIRA.</em></p>
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="exp-item">
+            <div class="exp-date">July 2022 - October 2025</div> 
+            <h3>Data Analyst | Client: ServiceNow</h3> 
+            <p style="color: var(--text-dim)">Payroll: Magnit Global Private Limited - Hyderabad, India</p>
+            <ul>
+                <li>Developed 30+ interactive dashboards in Power BI and Tableau, improving department visibility.</li>
+                <li>Designed ETL pipelines to transform data from Snowflake and flat files.</li>
+                <li>Automated KPI dashboards using Python, reducing reporting time by 50%.</li>
+                <li>Applied A/B testing and statistical methods to optimize content strategies.</li>
+                <li>Improved reporting accuracy by 30% by fixing data discrepancies and tagging issues.</li>
+                <li>Conducted root-cause investigations using SQL to identify customer support patterns.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" style="background: #0a0f1d;">
+        <h2>Key Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Customer Segmentation Model</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Clustered users using Python/SQL for behavioral targeting, increasing campaign engagement by 12%.</p>
+            </div>
+            <div class="card">
+                <h3>Sales Forecast Dashboard</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Built using Power BI and Snowflake integration for monthly prediction and performance tracking.</p>
+            </div>
+            <div class="card">
+                <h3>Operational SLA Tracker</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Tableau-based tool to monitor internal content requests and deadlines.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education & Certs</h2>
+        <div class="grid">
+            <div>
+                <h3>B.Tech in Computer Science</h3> 
+                <p>Holy Mary Institute of Technology | 60% GPA</p>
+                <p style="color: var(--text-dim)">2014 - 2019</p>
+            </div>
+            <div>
+                <h3>Certifications</h3>
+                <ul style="padding-left: 0;">
+                    <li>Microsoft Certified Application Specialist: Excel </li>
+                    <li>edX: Enabling Technologies for Data Science </li>
+                    <li>Foundations: Data, Data, Everywhere </li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Thrusha Sahu | Based in Hyderabad / Remote</p>
+        <p>Preferred Locations: Hyderabad, Pune, Bengaluru, or Remote </p>
+        <p>© 2026 Thrusha Sahu | GitHub: Active Contributor </p>
     </footer>
-</div>
 
 </body>
 </html>
